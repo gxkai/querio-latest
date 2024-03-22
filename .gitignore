@@ -22,3 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+/dist.zip
+/playground/client/vite.config.ts.timestamp-1711014262083-896c1acb49df6.mjs

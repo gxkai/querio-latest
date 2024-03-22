@@ -13,7 +13,6 @@ declare module '@vue/runtime-core' {
     Code: typeof import('./components/Code.vue')['default']
     CopyButton: typeof import('./components/base/CopyButton.vue')['default']
     Empty: typeof import('./components/Empty.vue')['default']
-    Headers: typeof import('./components/Headers.vue')['default']
     Icon: typeof import('./components/base/Icon.vue')['default']
     Input: typeof import('./components/base/Input.vue')['default']
     List: typeof import('./components/List.vue')['default']

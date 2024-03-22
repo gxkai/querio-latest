@@ -30,13 +30,13 @@ watch(() => props.entry, async (entry) => {
 
   try {
     const response = await entry.response.getResponse()
-
     if (!response) {
       data.value = null
       return
     }
+    data.value = response
 
-    data.value = formatData(response, entry.response.mimeType)
+    // data.value = formatData(response, entry.response.mimeType)
   }
   catch (e: any) {
     data.value = null
@@ -85,17 +85,17 @@ defineExpose({
     </TopBar>
     <div class="relative flex flex-1 flex-col of-hidden">
       <template v-if="activeView === 'data'">
-        <div v-if="parseError" class="h-full flex flex-grow items-center justify-center">
-          <div class="flex flex-col items-center">
-            <div class="i:code text-6xl text-gray6" />
-            <span
-              class="mt-4 inline-block text-gray10"
-            >{{ entry.response.mimeType }}</span>
-            <span class="inline-block text-gray8">{{ parseError }}</span>
-          </div>
-        </div>
+        <!--        <div v-if="parseError" class="h-full flex flex-grow items-center justify-center"> -->
+        <!--          <div class="flex flex-col items-center"> -->
+        <!--            <div class="i:code text-6xl text-gray6" /> -->
+        <!--            <span -->
+        <!--              class="mt-4 inline-block text-gray10" -->
+        <!--            >{{ entry.response.mimeType }}</span> -->
+        <!--            <span class="inline-block text-gray8">{{ parseError }}</span> -->
+        <!--          </div> -->
+        <!--        </div> -->
         <div
-          v-else-if="!data"
+          v-if="!data"
           class="h-full flex flex-grow items-center justify-center"
         >
           <div class="flex flex-col items-center">

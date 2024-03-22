@@ -280,17 +280,24 @@ export async function parseGQLEntry(entry: HAREntry): Promise<GQLEntry | GQLEntr
 async function getContent(entry: HAREntry) {
   const [body] = await entry.getContent()
 
-  if (!isContentType(entry.response, 'application/json'))
-    return body
-
+  // if (!isContentType(entry.response, 'application/json'))
+  //   return body
+  //
+  // try {
+  //   return JSON.parse(body)
+  // }
+  // catch (e: any) {
+  //   // console.warn(
+  //   //   `Internal Error Parsing: ${entry}. Message: ${e.message}. Stack: ${e.stack}`,
+  //   // )
+  //   // throw new ParseResponseError()
+  //   return body
+  // }
   try {
-    return JSON.parse(body)
+    return JSON.stringify(JSON.parse(body), null, 2)
   }
   catch (e: any) {
-    console.warn(
-      `Internal Error Parsing: ${entry}. Message: ${e.message}. Stack: ${e.stack}`,
-    )
-    throw new ParseResponseError()
+    return body
   }
 }
 
